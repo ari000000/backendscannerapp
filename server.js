@@ -5,6 +5,14 @@ const app = express();
 const PORT = 4000;
 
 
+const cors = require('cors');
+
+
+app.use(cors({
+  origin: 'https://gentle-desert-023790103.3.azurestaticapps.net/' 
+}));
+
+
 // Middleware, um JSON-Requests zu verarbeiten
 app.use(bodyParser.json());
 
@@ -47,11 +55,4 @@ app.listen(PORT, () => {
     console.log(`Server läuft auf Port ${PORT}`);
 });
 
-
-const cors = require('cors');
-
-
-app.use(cors({
-  origin: 'https://gentle-desert-023790103.3.azurestaticapps.net/' 
-}));
 
