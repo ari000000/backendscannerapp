@@ -33,7 +33,10 @@ app.post('/setProducts', (req, res) => {
             return res.status(500).send('Serverfehler beim Lesen der Datei.');
         }
 
-        const produkte = JSON.parse(data || '[]');
+        let produkte = JSON.parse(data || '[]');
+        if (Array.isArray(produkte)) {
+            produkte = [];
+        }
         produkte.push(neuesProdukt);
 
         fs.writeFile('produkte.json', JSON.stringify(produkte, null, 2), (err) => {
