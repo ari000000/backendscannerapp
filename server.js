@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 
 // Middleware, um JSON-Requests zu verarbeiten
@@ -38,6 +38,9 @@ app.post('/produkte', (req, res) => {
             res.status(201).send(neuesProdukt);
         });
     });
+});
+app.get('/', (req, res) => {
+    res.send('Willkommen bei meiner Node-App!');
 });
 
 app.listen(PORT, () => {
