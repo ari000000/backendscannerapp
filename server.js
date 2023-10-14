@@ -4,6 +4,12 @@ const fs = require('fs');
 const app = express();
 const PORT = 4000;
 
+const cors = require('cors');
+
+app.use(cors({
+    origin: '*'
+}));
+
 // Middleware, um JSON-Requests zu verarbeiten
 app.use(bodyParser.json());
 
