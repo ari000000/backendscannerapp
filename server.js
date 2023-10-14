@@ -4,14 +4,11 @@ const fs = require('fs');
 const app = express();
 const PORT = 4000;
 
-
-
-
 // Middleware, um JSON-Requests zu verarbeiten
 app.use(bodyParser.json());
 
 // Route, um alle Produkte zu holen
-app.get('/produkte', (req, res) => {
+app.get('/getProducts', (req, res) => {
     fs.readFile('produkte.json', 'utf-8', (err, data) => {
         if (err) {
             return res.status(500).send('Serverfehler beim Lesen der Datei.');
@@ -22,7 +19,7 @@ app.get('/produkte', (req, res) => {
 });
 
 // Route, um ein neues Produkt hinzuzufügen
-app.post('/produkte', (req, res) => {
+app.post('/setProducts', (req, res) => {
     const neuesProdukt = req.body;
 
     fs.readFile('produkte.json', 'utf-8', (err, data) => {
