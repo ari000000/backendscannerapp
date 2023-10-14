@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const PORT = 4000;
+const PORT = 3000;
 
 
 // Middleware, um JSON-Requests zu verarbeiten
@@ -47,6 +47,8 @@ app.listen(PORT, () => {
 
 const cors = require('cors');
 
+
 app.use(cors({
-    origin: 'https://gentle-desert-023790103.3.azurestaticapps.net/' 
+  origin: 'https://gentle-desert-023790103.3.azurestaticapps.net/' 
 }));
+
