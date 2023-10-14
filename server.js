@@ -15,34 +15,34 @@ app.use(bodyParser.json());
 
 // Route, um alle Produkte zu holen
 app.get('/getProducts', (req, res) => {
-    fs.readFile('produkte.json', 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Serverfehler beim Lesen der Datei.');
-        }
-        const produkte = JSON.parse(data || '[]');
-        res.json(produkte);
-    });
+    // fs.readFile('produkte.json', 'utf-8', (err, data) => {
+    //     if (err) {
+    //         return res.status(500).send('Serverfehler beim Lesen der Datei.');
+    //     }
+    //     const produkte = JSON.parse(data || '[]');
+    //     res.json(produkte);
+    // });
 });
 
 // Route, um ein neues Produkt hinzuzufügen
 app.post('/setProducts', (req, res) => {
     const neuesProdukt = req.body;
 
-    fs.readFile('produkte.json', 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Serverfehler beim Lesen der Datei.');
-        }
+    // fs.readFile('produkte.json', 'utf-8', (err, data) => {
+    //     if (err) {
+    //         return res.status(500).send('Serverfehler beim Lesen der Datei.');
+    //     }
 
-        const produkte = JSON.parse(data || '[]');
-        produkte.push(neuesProdukt);
+    //     const produkte = JSON.parse(data || '[]');
+    //     produkte.push(neuesProdukt);
 
-        fs.writeFile('produkte.json', JSON.stringify(produkte, null, 2), (err) => {
-            if (err) {
-                return res.status(500).send('Serverfehler beim Speichern der Datei.');
-            }
-            res.status(201).send(neuesProdukt);
-        });
-    });
+    //     fs.writeFile('produkte.json', JSON.stringify(produkte, null, 2), (err) => {
+    //         if (err) {
+    //             return res.status(500).send('Serverfehler beim Speichern der Datei.');
+    //         }
+    //         res.status(201).send(neuesProdukt);
+    //     });
+    // });
 });
 app.get('/', (req, res) => {
     res.send('Willkommen bei meiner Node-App!');
