@@ -4,6 +4,7 @@ const fs = require('fs');
 const app = express();
 const PORT = 4000;
 
+
 // Middleware, um JSON-Requests zu verarbeiten
 app.use(bodyParser.json());
 
@@ -42,3 +43,7 @@ app.post('/produkte', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server läuft auf Port ${PORT}`);
 });
+
+
+const cors = require('cors');
+app.use(cors());
