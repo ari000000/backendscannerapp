@@ -46,4 +46,7 @@ app.listen(PORT, () => {
 
 
 const cors = require('cors');
-app.use(cors());
+
+app.use(cors({
+    origin: '  https://gentle-desert-023790103.3.azurestaticapps.net/         ' 
+}));
